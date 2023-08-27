@@ -164,11 +164,11 @@ Now I want to check the average cost of the trips without tips and extra cost, c
 
 ![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/a4e0e1a2-3d3b-4c89-8112-643600b81500)
 
-
 It is 17.26 USD.
 
 I want to see which is the company with the highest profit in Chicago:
-![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/a4841b5d-3003-4be7-b66e-dbad3a1596f0)
+
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/d6617a20-cba8-49f6-a299-b8a6d521484b)
 
 Taxi Affiliation Services is the most dominant taxi company in Chicago in terms of profit.
 
