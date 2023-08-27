@@ -5,7 +5,8 @@ In this proyect I will use Google Cloud Platform (GCP) to explore the dataset ca
 “Chicago Taxi Trips”, do some transformations with Dataflow, explore data with Big Query and finally get some visualizations with Looker. 
 I will be using a “Free” GCP account which allows me to use 300 U$$ in resources during 90 days.
 
-![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/0f9d45ce-ec6a-4335-9ba7-5071e3f55129)
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/4733a816-cdbd-4608-bdc6-25e0fb398d47)
+
 
 ## __Exploring__  
 
