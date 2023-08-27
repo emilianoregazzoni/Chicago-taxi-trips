@@ -62,6 +62,7 @@ Now I now the start and end date are “estimate” times, they are not exact.
 Anyways I need to decide what I will do with the records have no duration time (trip_seconds) and also the records have a newest trip_start than their trip_end. This cases have no sense, so I will filter them and I will not be using them in the proyect, because this records will afect the entire dataset and the conclutions may I reach.
 
 The historic dataset has 208 million records approximately, but I concluded the dataset has also some problems with an important amount of records. Because it has records with no time duration but also records with more recent date starting  trip than the date arriviving date. This situation has no sense. 
+
 So I will filter this ones with a simple query just to figure out with how many records I will work with.
 
 ```  
@@ -180,6 +181,7 @@ Now I want to know how it is distributed the payment method considering all the 
 The majority of them were paid via cash, and almost the other half was paid using credit card
 
 I would love to do some transformations with dataflow and apache beam, but the dataset doesn't seems to be a good one, too many repeated records for taxi companies, almost a million of travels with higher starting date than end date, and it doesn't have many more information. 
+
 I guess I will choose another dataset to do dataflow transformations in the future, but It was a good experience to explore into Big query on GCP :relaxed:
 
 
