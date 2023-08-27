@@ -7,6 +7,8 @@ I will be using a “Free” GCP account which allows me to use 300 U$$ in resou
 
 ![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/0f9d45ce-ec6a-4335-9ba7-5071e3f55129)
 
+## __Exploring__  
+
 This datasets shows the taxi trips of Chicago since 2013 to present. It has a monthly update, which is good.
 
 Key point working in a cloud environment: __Just query what you need__.
@@ -72,5 +74,109 @@ WHERE
 trip_seconds >=1
 and trip_end_timestamp > trip_start_timestamp
 ```  
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/1e5b727a-5e5a-4fed-b6c9-c935d166fd9f)
+
+It seems I will use approximately 129 million records instead of 208 million. 62% of the original dataset. All of this records have at least 1 second duration and their starting time is previous than their arriving time.
+
+## __Creating a dataset__  
+
+Creating a dataset is almost like creating a schema in SQL. First I need to create the dataset, and after that I will create tables al fill them with data.
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/619c3217-f4df-4eae-8366-c8e7f4b8db46)
+
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/5c0759cf-0f35-4106-a483-738cb64f4060)
+
+Then I need to fillthe dataset with data.
+So I query the entire dataset with the filters previously mentioned to get the valid trips and all the columns.
+
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/6ef49388-f195-4f49-a712-34f25ce9c3f8)
+
+After the query is made I can save the result as a new table in the dataset.
+
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/aa3fac69-fb49-41f5-82d5-0e99ece19430)
+
+Here I choose the dataset previously created, and I create a table name for the new dataset.
+
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/27e348a8-207d-43bd-8776-584d8cef77da)
+
+Then I query my new dataset and I check I have the same amount of records I had when I queried the original dataset from bigquery.
+
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/1058493e-054a-416f-9732-2e91a8f455ac)
+
+## __Query time__  
+
+
+Now lets try to explore the clean dataset :blush:
+
+How much money has been made on chicago taxi drives?
+
+I already have the amount of the total trip, which is reflected on “trip_total”, I checked with some examples of the dataset.
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/b204ccb2-34b1-48c4-9166-40cddb463a8d)
+
+``` 
+SELECT SUM(trip_total) FROM `intense-reason-393613.taxisTrips.taxisTravels`
+```  
+I got the result of: 2.636.262.703,37 US$
+was the amount of money that has been spent since 2013 in taxi drives in chicago.
+
+Now I will explore:  how many companies are involved in this information?
+
+Well technically the dataset has 172 different companies without considering the records that have no company name.
+
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/07b7430b-70ee-4adf-92a8-6a1da75c8b1d)
+
+But, unfortunately the dataset data quality is poor, again I have another problem: repeated records.
+In this case for example the dataset has 4 different companies, but I know the records are referring to the same company.
+
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/244beee0-856f-41c4-af7c-a0983a2b7634)
+
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/06e7d57f-bcce-417e-b288-7f4314d98542)
+
+I can say the dataset has less than 172 taxi companies.
+
+Now I want to know in which hour the taxi demand is the highest:
+
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/334244f5-7fa5-4cd4-a157-fc8a7d3796d3)
+
+The time when more taxis are requested is 18.
+I want to see which of the previous records has the highest average in Tips:
+
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/2543f6d4-628d-482c-a476-0d36003f21ee)
+
+I can see the travelers of the 6am hour are very generous .
+
+I know that the hours 16,17,18,19 and 20 are the hours in which more taxis are requested, but I want to see the behaviour during the year.
+I will try to get the months which less trips in the entire dataset:
+
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/451e2439-f9ae-4227-be1c-6f537ed0e62e)
+
+I can see that during the winter, the demand of taxis is lower than the rest of the year. The month that have less demand of taxis are January, December, February and November. So Chicago people prefer to stay at home in the winter.
+Let’s see how many travels had the taxi with most quantity of travels:
+
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/0590546a-e679-4fe6-ac92-26934c503fe4)
+
+50039 travels in a period of ten years if I check the max y the min year the dataset has:
+
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/6370408f-9d52-47aa-985f-f98fb95d224f)
+
+So I can say the taxi with more work in ten years had approximately 5000 travels by year.
+
+Now I want to check the average cost of the trips without tips and extra cost, considering all the travels that has a fare > to zero.
+
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/ac3745b3-ab21-4ac3-80df-3e103f843fe5)
+
+It is 17.26 USD.
+
+I want to see which is the company with the highest profit in Chicago:
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/a4841b5d-3003-4be7-b66e-dbad3a1596f0)
+
+Taxi Affiliation Services is the most dominant taxi company in Chicago in terms of profit.
+
+Now I want to know how it is distributed the payment method considering all the trips:
+
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/a0d75fdf-aadd-4e41-b393-6d7a166e2193)
+
+The majority of them were paid via cash, and almost the other half was paid using credit card
+
+I would love to do some transformations with dataflow and apache beam, but the dataset doesn't seems to be a good one, too many repeated records for taxi companies, almost a million of travels with higher starting date than end date, and it doesn't have many more information. I guess I will choose another dataset to do dataflow transformations in the future, but It was a good experience to explore into Big query on GCP :relaxed:
 
 
