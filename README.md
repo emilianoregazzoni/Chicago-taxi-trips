@@ -168,6 +168,9 @@ It is 17.26 USD.
 
 I want to see which is the company with the highest profit in Chicago:
 
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/ccaa5d0d-da60-4750-8695-73b4a1683bc9)
+
+
 Taxi Affiliation Services is the most dominant taxi company in Chicago in terms of profit.
 
 Now I want to know how it is distributed the payment method considering all the trips:
