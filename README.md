@@ -86,6 +86,7 @@ It seems I will use approximately 129 million records instead of 208 million. 62
 ## __Creating a dataset__  
 
 Creating a dataset is almost like creating a schema in SQL. First I need to create the dataset, and after that I will create tables al fill them with data.
+
 ![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/84ceec2a-3afe-4df6-9f59-b3a65c5e7f19)
 
 
