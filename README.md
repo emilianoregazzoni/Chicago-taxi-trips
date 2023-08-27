@@ -162,7 +162,8 @@ So I can say the taxi with more work in ten years had approximately 5000 travels
 
 Now I want to check the average cost of the trips without tips and extra cost, considering all the travels that has a fare > to zero.
 
-![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/ac3745b3-ab21-4ac3-80df-3e103f843fe5)
+![image](https://github.com/emilianoregazzoni/Chicago-taxi-trips/assets/20979227/a4e0e1a2-3d3b-4c89-8112-643600b81500)
+
 
 It is 17.26 USD.
 
@@ -177,6 +178,7 @@ Now I want to know how it is distributed the payment method considering all the 
 
 The majority of them were paid via cash, and almost the other half was paid using credit card
 
-I would love to do some transformations with dataflow and apache beam, but the dataset doesn't seems to be a good one, too many repeated records for taxi companies, almost a million of travels with higher starting date than end date, and it doesn't have many more information. I guess I will choose another dataset to do dataflow transformations in the future, but It was a good experience to explore into Big query on GCP :relaxed:
+I would love to do some transformations with dataflow and apache beam, but the dataset doesn't seems to be a good one, too many repeated records for taxi companies, almost a million of travels with higher starting date than end date, and it doesn't have many more information. 
+I guess I will choose another dataset to do dataflow transformations in the future, but It was a good experience to explore into Big query on GCP :relaxed:
 
 
